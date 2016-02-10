@@ -101,15 +101,17 @@
                 <div class="row">
 
 
-                    <div class ="span4" style="alignment-adjust: central">
-                        <div>
-                            <img src="images/phoneStore/phone.jpg">
-                        </div>
-                        <%
+                     <%
                             user = (User) session.getAttribute("user");
                             Product phoneObj;
                             phoneObj = (Product) request.getAttribute("searchByName");
-
+                        %>
+                    <div class ="span4" style="alignment-adjust: central">
+                        <div>
+                            <img src="images/phoneStore/<%= phoneObj.getProductName()%>.jpg">
+                        </div>
+                       
+                        <%
                             if (user != null && user.getIsIsAdmin() == true) {
                         %>
                         <div>

@@ -117,7 +117,7 @@
                     <div class ="span4">
                         <a href="processRequest?action=getproductbyid&id=<%= p.getProductID()%>" class="thumbnail" target="_self">
                             <div>
-                                <img src="images/phoneStore/phone.jpg">
+                                <img src="images/phoneStore/<%= p.getProductName()%>.jpg">
                             </div>
                             <div>
                                 <%
