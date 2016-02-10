@@ -8,7 +8,7 @@
 <%@page import="Service.UserService"%>
 <!doctype html>
 <html lang="en-US">
-    <head><!--Links calling on the different bootstrap packages and css file -->
+    <head><!--Links calling on the different bootstrap packages and css file ***hello sergio**** -->
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <title>PHONES R US</title>
 

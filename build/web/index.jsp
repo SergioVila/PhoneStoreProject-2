@@ -1,14 +1,14 @@
 <%-- 
     Document   : index
     Created on : Dec 8, 2015, 2:58:05 PM
-    Author     : Sergio
+    Author     : Brian
 --%>
 
 <%@page import="Business.User"%>
 <%@page import="Service.UserService"%>
 <!doctype html>
 <html lang="en-US">
-    <head><!--Links calling on the different bootstrap packages and css file -->
+    <head><!--Links calling on the different bootstrap packages and css file ***hello sergio**** -->
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <title>PHONES R US</title>
 
