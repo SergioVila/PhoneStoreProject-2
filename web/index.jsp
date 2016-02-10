@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : Dec 8, 2015, 2:58:05 PM
-    Author     : Sergio
+    Author     : Brian
 --%>
 
 <%@page import="Business.User"%>
