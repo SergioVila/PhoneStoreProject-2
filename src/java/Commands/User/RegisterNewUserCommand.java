@@ -1,0 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Commands.User;
+
+import Business.User;
+import Commands.Command;
+import Daos.UserDao;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ *
+ * @author Sergio
+ */
+public class RegisterNewUserCommand implements Command {
+
+    public String execute(HttpServletRequest request, HttpServletResponse response) {
+        String forwardToJsp = "";
+
+        //Getting the user to be registered
+        User user = new User();
+        
+        user.setfName(request.getParameter("fName"));
+        user.setlName(request.getParameter("lName"));
+        user.setAddress(request.getParameter("address"));
+        user.setCounty(request.getParameter("county"));
+        user.setCountry(request.getParameter("country"));
+        user.setEmail(request.getParameter("email"));
+        user.setPhone(request.getParameter("phone"));
+        user.setPassword(request.getParameter("password").toCharArray());
+        
+        // Checking for null value
+        if (user != null)
+        {
+            UserDao instance = new UserDao();
+            if (instance.registerNewUser(user))
+            {
+                forwardToJsp = "index.jsp";
+            }
+            else
+            {
+                forwardToJsp = "index.jsp";
+            }
+        }
+        
+        return forwardToJsp ;
+    }
+    
+}
