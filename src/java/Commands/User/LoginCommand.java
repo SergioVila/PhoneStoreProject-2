@@ -25,19 +25,38 @@ public class LoginCommand implements Command
         //The user wants to log in...
         String username = request.getParameter("username");
         char[] password = (request.getParameter("password").toCharArray());
-
         
-        //Use the UserServive class to login...
-        UserService userService = new UserService();
-        User userLoggingIn = userService.login(username, password);
+        boolean pass = true;
+        
+        for(char item : password){
+            if(Character.isDigit(item))
+            {
+                continue;
+            }else if (Character.isLetter(item))
+            {
+                continue;
+            }else{
+                pass = false;
+            }
+        }
+        
+        if (!pass)
+        {
+            forwardToJsp = "/loginError.jsp";
+        }else{
+        
+            //Use the UserServive class to login...
+            UserService userService = new UserService();
+            User userLoggingIn = userService.login(username, password);
 
-        //If login successful, store the session id for this client...
-        HttpSession session = request.getSession();
-        String clientSessionId = session.getId();
-        session.setAttribute("loggedSessionId", clientSessionId);
-        session.setAttribute("user", userLoggingIn);
+            //If login successful, store the session id for this client...
+            HttpSession session = request.getSession();
+            String clientSessionId = session.getId();
+            session.setAttribute("loggedSessionId", clientSessionId);
+            session.setAttribute("user", userLoggingIn);
 
-        forwardToJsp = "/index.jsp";				
+            forwardToJsp = "/index.jsp";
+        }
 
         return forwardToJsp;
     }
