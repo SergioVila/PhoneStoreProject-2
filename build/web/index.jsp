@@ -103,6 +103,7 @@ testing
                         <%    }
                         %>
                     <li><a href="legal.jsp">Legal</a></li>
+                    
                 </ul>
             </div>
         </nav>
