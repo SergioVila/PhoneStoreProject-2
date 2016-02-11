@@ -39,28 +39,25 @@
                     <li style="float: right;list-style-type: none">
                         <%
                             User user = (User) session.getAttribute("user");
-                            if(user == null)
-                            {
+                            if (user == null) {
                                 response.sendRedirect("index.jsp");
                             }
                             if (session.getAttribute("loggedSessionId") != null && session.getAttribute("user") != null) {
-                        
+
                                 out.println("<a href='processRequest?action=logout'> Log out</a><a>\tHello " + user.getfName() + "</a>");
-                            } 
+                            }
                         %>
                     </li>
 
                     <%
                         if (user != null && user.getIsIsAdmin() == true) {
                     %>
-                    
+
                     <li><a href="processRequest?action=getAllOrders">Orders</a></li>
                     <li><a href="adminController.jsp">Admin Panel</a></li>
                     <li><a href="cart.jsp">Cart</a></li>
                         <%
-                            }
-                        else if(user != null && user.getIsIsAdmin() != true)
-                            {             
+                        } else if (user != null && user.getIsIsAdmin() != true) {
                         %>
                     <li><a href="processRequest?action=getAllOrders">Orders</a></li>
                     <li><a href="cart.jsp">Cart</a></li>
@@ -75,60 +72,93 @@
 
 
 
-                        <div class ="span10">
-                            <%
-                                User userObj;
-                                userObj = (User) session.getAttribute("user");
-                            %>
-                            </br>
-                            
-                            <div id="profile">
-                                <form action="processRequest" method="post">
-                                <%
-                                    out.println("User ID: ");
-                                %>
-                                <input type="text" value="<%=userObj.getUserId()%>" name="userID">
-                                <%
-                                    out.println("User Name: ");
-                                %>
-                                <br>
-                                <input type="text" value="<%=userObj.getfName()%>" name="fName">
-                                <input type="text" value="<%=userObj.getlName()%>" name="lName">
-                                <%
-                                    out.println("Email: ");
-                                %>
-                                <input type="text" value="<%=userObj.getEmail()%>" name="email">
-                                <%
-                                    out.println("Phone: ");
-                                %>
-                                <input type="text" value="<%=userObj.getPhone()%>" name="phone">
-                                <%
-                                    out.println("Address: ");
-                                %>
-                                <input type="text" value="<%=userObj.getAddress()%>" name="address">
-                                <%
-                                    out.println("County: ");
-                                %>
-                                <input type="text" value="<%=userObj.getCounty()%>" name="county">
+        <div class ="span10">
+            <%
+                User userObj;
+                userObj = (User) session.getAttribute("user");
+            %>
+            </br>
 
-                                <%
-                                    out.println("Country: ");
-                                %>
-                                <input type="text" value="<%=userObj.getCountry()%>" name="country">
-                                <%
-                                    out.println("Admin: ");
-                                %>
-                                <input type="text" value="<%=userObj.getIsIsAdmin()%>" name="admin">
-                                <input type="hidden" value="<%=userObj.getPassword()%>" name="password">
-                                <%
-                                    request.setAttribute("UserToUpdated", userObj);
-                                %>
+            <div id="profile">
+                <form action="processRequest" method="post">
+                    <%
+                        out.println("User ID: ");
+                    %>
+                    <input type="text" value="<%=userObj.getUserId()%>" name="userID">
+                    <%
+                        out.println("User Name: ");
+                    %>
+                    <br>
+                    <input type="text" value="<%=userObj.getfName()%>" name="fName">
+                    <input type="text" value="<%=userObj.getlName()%>" name="lName">
+                    <%
+                        out.println("Email: ");
+                    %>
+                    <input type="text" value="<%=userObj.getEmail()%>" name="email">
+                    <%
+                        out.println("Phone: ");
+                    %>
+                    <input type="text" value="<%=userObj.getPhone()%>" name="phone">
+                    <%
+                        out.println("Address: ");
+                    %>
+                    <input type="text" value="<%=userObj.getAddress()%>" name="address">
+                    <%
+                        out.println("County: ");
+                    %>
+                    <input type="text" value="<%=userObj.getCounty()%>" name="county">
 
-                                
-                                <input type="hidden" name="action" value="updateuserdetails" />
-                                <input type="submit" name="submit" value="Edit"/>
-                                </form>
-                        
+                    <%
+                        out.println("Country: ");
+                    %>
+                    <input type="text" value="<%=userObj.getCountry()%>" name="country">
+                    <%
+                        out.println("Admin: ");
+                    %>
+                    <input type="text" value="<%=userObj.getIsIsAdmin()%>" name="admin">
+                    <input type="hidden" value="<%=userObj.getPassword()%>" name="password">
+                    <%
+                        request.setAttribute("UserToUpdated", userObj);
+                    %>
 
-    </body>
-</html>
+
+                    <input type="hidden" name="action" value="updateuserdetails" />
+                    <input type="submit" name="submit" value="Edit"/>
+                </form>
+
+                <div id="footer">
+                    <div class="container">
+                        <ul id="footerList">
+                            <li id="footerItem"><p>Please feel free to <a href="contacts.jsp">Email</a> us</p></li>
+                            <li id="footerItem">&nbsp;&nbsp;&nbsp;</li>
+                            <li id="footerItem"><p><a href="http://latch.elevenpaths.com" target="_blank"><img src="img/latch_logo.png" width="150" alt="http://latch.elevenpaths.com" ></a></p></li>
+                            <li id="footerItem">&nbsp;&nbsp;&nbsp;</li>
+                            <li id="footerItem"><p>
+                                    <small>Follow us on twitter: 
+                                        <a href="<a href=https://twitter.com/NiallMulready" 
+                                           class="twitter-follow-button" 
+                                           data-show-count="false" data-size="large" 
+                                           data-show-screen-name="false">Follow @NiallMulready</a>
+                                        <script>!function (d, s, id) {
+                                                var js, fjs = d.getElementsByTagName(s)[0],
+                                                        p = /^http:/.test(d.location) ? 'http' : 'https';
+                                                if (!d.getElementById(id))
+                                                {
+                                                    js = d.createElement(s);
+                                                    js.id = id;
+                                                    js.src = p + '://platform.twitter.com/widgets.js';
+                                                    fjs.parentNode.insertBefore(js, fjs);
+                                                }
+                                            }(document, 'script', 'twitter-wjs');
+                                        </script>
+                                    </small>
+                                </p></li>
+                            <li id="footerItem">&nbsp;&nbsp;&nbsp;</li>
+                            <li id="footerItem"><div class="fb-like" data-href="https://www.facebook.com/Phones-R-US-118666461853804/?skip_nax_wizard=true" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></li>
+                            <li id="footerItem">&nbsp;&nbsp;&nbsp;</li>
+                            <li id="footerItem">Please have a look at our <a href="FAQ.jsp"><b>FAQ</b></a> if you have any questions</li>
+                        </ul>
+                    </div>
+                </div>
+                </body>
+                </html>

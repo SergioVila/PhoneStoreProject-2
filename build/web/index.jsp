@@ -212,6 +212,8 @@ testing
                         </p></li>
                     <li id="footerItem">&nbsp;&nbsp;&nbsp;</li>
                     <li id="footerItem"><div class="fb-like" data-href="https://www.facebook.com/Phones-R-US-118666461853804/?skip_nax_wizard=true" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></li>
+                    <li id="footerItem">&nbsp;&nbsp;&nbsp;</li>
+                    <li id="footerItem">Please have a look at our <a href="FAQ.jsp"><b>FAQ</b></a> if you have any questions</li>
                 </ul>
             </div>
         </div>
