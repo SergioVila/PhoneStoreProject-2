@@ -44,7 +44,7 @@ testing
                         
                            
                             <%
-                                out.println("<a href='processRequest?action=logout'> Log out</a><a>\tHello " + user.getfName() + "</a>");
+                                out.println("<a href='processRequest?action=logout'> Log out</a><a href='profile.jsp'>\tHello " + user.getfName() + "</a>");
 
                             %>
                        
