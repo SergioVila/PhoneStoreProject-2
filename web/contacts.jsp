@@ -167,6 +167,12 @@
                             </form>
                         </div>
                     </div>
+                    <div class="span4">
+                        <h2>Call us on Skype</h2>
+                        <p>Please feel free to call one of our customer service employees to answer any of your questions.</p>
+                        <p class="text-center"><a class="btn" id="post" href="skype:Brian mc manus?call" data-rel="popup">Call using Skype</a></p>
+                        
+                    </div>
                 </div><!-- @end .row -->
             </div><!-- @end .container -->
         </div><!-- @end #main-content -->

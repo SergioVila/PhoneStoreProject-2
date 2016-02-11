@@ -113,7 +113,7 @@
                 <form method="post" action="processRequest">
                     <%
                         
-                        ArrayList<Product> productList = (ArrayList<Product>) session.getAttribute("productOnOrderLst");
+                        ArrayList<Product> productList = (ArrayList<Product>) session.getAttribute("orderProductLst");
                         
                        
                         if (productList != null)

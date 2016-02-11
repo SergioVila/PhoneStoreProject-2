@@ -55,7 +55,7 @@
                         <a id="modal_trigger" href="#myPopupIndex" data-rel="popup">Click here to Login or register</a>
 
                         <!--    popup appears once login is selected     -->
-                        <div data-role="popup" id="myPopupIndex" class="ui-content" style="min-width:250px;">
+                        <div data-role="popup" id="myPopupLegal" class="ui-content" style="min-width:250px;">
                             <form method="post" action="processRequest">
                                 <h3>Login information</h3>
                                 <br>
