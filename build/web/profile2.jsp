@@ -1,11 +1,13 @@
 <%-- 
-    Document   : profile
-    Created on : 10-Feb-2016, 15:26:31
-    Author     : d00128036
+    Document   : suppliers
+    Created on : Dec 12, 2015, 10:37:34 AM
+    Author     : Megatronus
 --%>
 
 <%@page import="Business.Product"%>
 <%@page import="Business.User"%>
+<%@page import="Business.Supplier"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -39,21 +41,47 @@
                     <li style="float: right;list-style-type: none">
                         <%
                             User user = (User) session.getAttribute("user");
-                            if(user == null)
+                            if(user == null || user.getIsIsAdmin() == false)
                             {
-                                response.sendRedirect("index.jsp");
+                                response.sendRedirect("error.jsp");
                             }
                             if (session.getAttribute("loggedSessionId") != null && session.getAttribute("user") != null) {
-                        
+
                                 out.println("<a href='processRequest?action=logout'> Log out</a><a>\tHello " + user.getfName() + "</a>");
-                            } 
+
+                            } else {
+                        %>
+                        <a id="modal_trigger" href="#myPopupProductList" data-rel="popup">Click here to Login or register</a>
+
+                        <!--    popup appears once login is selected     -->
+                        <div data-role="popup" id="myPopupProductList" class="ui-content" style="min-width:250px;">
+                            <form method="post" action="processRequest">
+                                <h3>Login information</h3>
+                                <br>
+                                <br>
+                                <div>
+                                    <input type="text" name="username" placeholder="Username/Email">
+
+                                    <input type="password" name="password" placeholder="Password">
+
+                                    <input type="hidden" value ="Login" name ="action">
+                                    <input type="submit" data-inline="true" value="Login" name="login">
+
+                                </div>
+                            </form>
+                            <div>
+                                <a href = "register.jsp"><input type="submit" data-inline="true" value="Register"></a>
+                            </div>
+                        </div>
+                        <%
+                            }
                         %>
                     </li>
 
                     <%
                         if (user != null && user.getIsIsAdmin() == true) {
                     %>
-                    
+
                     <li><a href="processRequest?action=getAllOrders">Orders</a></li>
                     <li><a href="adminController.jsp">Admin Panel</a></li>
                     <li><a href="cart.jsp">Cart</a></li>
@@ -72,18 +100,14 @@
         <br>
         <br>
         <br>
-
-
-
-                        <div class ="span10">
-                            <%
+        <div id="main-content">
+            <div class="container">
+                <div class="row">
+                    <%
                                 User userObj;
-                                userObj = (User) session.getAttribute("user");
+                                userObj = (User) request.getAttribute("searchById");
                             %>
-                            </br>
-                            
-                            <div id="profile">
-                                <form action="processRequest" method="post">
+                    <form action="processRequest" method="post">
                                 <%
                                     out.println("User ID: ");
                                 %>
@@ -128,7 +152,11 @@
                                 <input type="hidden" name="action" value="updateuserdetails" />
                                 <input type="submit" name="submit" value="Edit"/>
                                 </form>
-                        
-
-    </body>
+                </div>
+            <div>
+                <a href="adminController.jsp">Back to the control panel</a>
+            </div>
+        </div><!-- @end .container -->
+    </div><!-- @end #main-content -->
+</body>
 </html>

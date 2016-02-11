@@ -72,19 +72,17 @@
         <br>
         <br>
         <br>
-        <div id="main-content">
-            <div class="container">
-                <div class="row">
-                    
 
-                        <div class ="span4" style="alignment-adjust: central">
+
+
+                        <div class ="span10">
                             <%
                                 User userObj;
                                 userObj = (User) session.getAttribute("user");
                             %>
                             </br>
                             
-                            <div>
+                            <div id="profile">
                                 <form action="processRequest" method="post">
                                 <%
                                     out.println("User ID: ");
@@ -130,8 +128,7 @@
                                 <input type="hidden" name="action" value="updateuserdetails" />
                                 <input type="submit" name="submit" value="Edit"/>
                                 </form>
-                            </div>
-                </div> <!-- @end .container -->
-        </div><!-- @end #main-content -->
+                        
+
     </body>
 </html>
