@@ -193,6 +193,7 @@ public class UserDao extends Dao implements UserDaoInterface {
         PreparedStatement ps = null;
         ResultSet rs = null;
         User u = null;
+        
 
         try {
             con = this.getConnection();
