@@ -29,6 +29,15 @@ testing
         <script type="text/javascript" language="javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
         <nav id="navigation">
             <div class="container">
                 <ul class="navlinks">
@@ -194,8 +203,9 @@ testing
                                     fjs.parentNode.insertBefore(js, fjs);
                                 }
                             }(document, 'script', 'twitter-wjs');
-                            </script>
+                        </script>
                     </small>
+                    <div class="fb-like" data-href="https://www.facebook.com/Phones-R-US-118666461853804/?skip_nax_wizard=true" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                 </p>
             </div>
         </div>
