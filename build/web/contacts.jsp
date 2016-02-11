@@ -170,11 +170,7 @@
                     <div class="span4">
                         <h2>Call us on Skype</h2>
                         <p>Please feel free to call one of our customer service employees to answer any of your questions.</p>
-<<<<<<< HEAD
-                        <p class="text-center"><a class="btn" id="post" href="skype:Brianmcmanusbrianakjesus1@hotmail.com?call" data-rel="popup">Call using Skype</a></p>
-=======
                         <p class="text-center"><a class="btn" id="post" href="skype:brian.mc.manus1?call" data-rel="popup">Call using Skype</a></p>
->>>>>>> origin/master
                         
                     </div>
                 </div><!-- @end .row -->

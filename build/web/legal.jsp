@@ -95,7 +95,6 @@
                     <li><a href="cart.jsp">Cart</a></li>
                         <%    }
                         %>
-                    <li><a href="legal.jsp">Legal</a></li>
                 </ul>
             </div>
         </nav>
