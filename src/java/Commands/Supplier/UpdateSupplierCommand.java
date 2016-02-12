@@ -28,7 +28,14 @@ public class UpdateSupplierCommand implements Command{
         SupplierDao instance = new SupplierDao();
         // getting the parameters to search from the request
         Supplier toUpdate = new Supplier();
+        boolean updated = false;
+        
+        if(request.getParameter("supplierId") != null && request.getParameter("userName") != null && request.getParameter("address") != null 
+                && request.getParameter("email") != null && request.getParameter("country") != null && request.getParameter("county") != null && 
+                request.getParameter("phone") != null)
+        {
         toUpdate.setSupplierId(Integer.parseInt(request.getParameter("supplierId")));
+        
         toUpdate.setSupplierName(request.getParameter("userName"));
         toUpdate.setAddress(request.getParameter("address"));
         toUpdate.setEmail(request.getParameter("email"));
@@ -36,7 +43,10 @@ public class UpdateSupplierCommand implements Command{
         toUpdate.setCounty(request.getParameter("county"));
         toUpdate.setPhone(request.getParameter("phone"));
         // Consulting the database
-        boolean updated = instance.updateSupplier(toUpdate);
+        updated = instance.updateSupplier(toUpdate);
+        }
+        
+        
 
         if (updated) {
             request.setAttribute("supplierUpdated", toUpdate);

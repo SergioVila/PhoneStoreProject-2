@@ -30,7 +30,10 @@ public class RegisterNewProductCommand implements Command{
         product.setStock(Integer.parseInt(request.getParameter("productStock")));
         
         ProductDao instance = new ProductDao();
+        if(product != null)
+        {
         instance.registerProduct(product);
+        }
             
         return "adminController.jsp" ;
     }

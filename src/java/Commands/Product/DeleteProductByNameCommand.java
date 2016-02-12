@@ -29,10 +29,15 @@ public class DeleteProductByNameCommand implements Command{
         String productName = null;
         // getting the parameters to search from the request
         productName = (String)request.getAttribute("product");
+        
+        if(productName != null)
+        {
         // deleting the object from the database
         boolean deleted = instance.deleteProduct(productName);
         // setting a new arrayList with the products returned
         session.setAttribute("deleted", deleted);
+        }
+        
         // site where the information is processed
         forwardToJsp = "/phoneStore.jsp";
 

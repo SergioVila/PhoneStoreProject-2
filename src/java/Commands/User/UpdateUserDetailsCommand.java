@@ -30,7 +30,12 @@ public class UpdateUserDetailsCommand implements Command{
         UserDao instance = new UserDao();
         // getting the parameters to search from the request
         User toUpdate = new User();
-        
+        boolean updated = false;
+                
+         if(request.getParameter("userID") != null && request.getParameter("fName") != null && request.getParameter("lName") != null && request.getParameter("address") != null &&
+                request.getParameter("county") != null && request.getParameter("country") != null && request.getParameter("email") != null &&
+                request.getParameter("phone") != null && request.getParameter("password") != null)
+        {
         toUpdate.setUserId(Integer.parseInt(request.getParameter("userID")));
         toUpdate.setfName(request.getParameter("fName"));
         toUpdate.setlName(request.getParameter("lName"));
@@ -42,7 +47,8 @@ public class UpdateUserDetailsCommand implements Command{
         toUpdate.setIsAdmin(Boolean.parseBoolean(request.getParameter("admin")));
         toUpdate.setPasswordHashed(request.getParameter("password"));
         // Consulting the database
-        boolean updated = instance.editUserDetails(toUpdate);
+        updated = instance.editUserDetails(toUpdate);
+        }
 
         if (updated) {
             request.setAttribute("userUpdated", toUpdate);

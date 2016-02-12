@@ -31,11 +31,16 @@ public class GetUserByNameCommand implements Command
         // getting the parameters to search from the request
         String fName = request.getParameter("fName");
         String lName = request.getParameter("lName");
+        
+        
+        if(fName != null && lName != null)
+        {
         // Consulting the database
         ArrayList<User> userByNames = instance.getUserByName(fName, lName);
         // setting a new arrayList with the users returned
         session.setAttribute("usersByNames", userByNames);
         // site where the information is processed
+        }
         forwardToJsp = "/index.jsp";				
 
         return forwardToJsp;

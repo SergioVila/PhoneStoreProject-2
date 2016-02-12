@@ -23,7 +23,10 @@ public class RegisterNewUserCommand implements Command {
 
         //Getting the user to be registered
         User user = new User();
-        
+        if(request.getParameter("fName") != null && request.getParameter("lName") != null && request.getParameter("address") != null &&
+                request.getParameter("county") != null && request.getParameter("country") != null && request.getParameter("email") != null &&
+                request.getParameter("phone") != null && request.getParameter("password") != null)
+        {
         user.setfName(request.getParameter("fName"));
         user.setlName(request.getParameter("lName"));
         user.setAddress(request.getParameter("address"));
@@ -32,6 +35,7 @@ public class RegisterNewUserCommand implements Command {
         user.setEmail(request.getParameter("email"));
         user.setPhone(request.getParameter("phone"));
         user.setPassword(request.getParameter("password").toCharArray());
+        }
         
         // Checking for null value
         if (user != null)
