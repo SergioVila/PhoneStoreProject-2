@@ -58,7 +58,10 @@ public class LoginCommand implements Command
                 session.setAttribute("loggedSessionId", clientSessionId);
                 session.setAttribute("user", userLoggingIn);
             }else{
-                new updateLoginCommand();
+                Command command;
+                command = (Command) new updateLoginCommand();
+                
+                instance.
             }
             forwardToJsp = "/index.jsp";
         }
