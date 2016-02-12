@@ -19,6 +19,10 @@ import javax.servlet.http.HttpSession;
  */
 public class updateLoginCommand {
 
+    public void update(String username) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public class LoginCommand implements Command {
 
         public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -26,10 +30,11 @@ public class updateLoginCommand {
             //If login successful, store the session id for this client...
             HttpSession session = request.getSession();
 
+            String username = request.getParameter("username");
             // Account dao not implemented yet
             AccountDao instance = new AccountDao();
             
-            instance.update();
+            instance.update(username);
 
             forwardToJsp = "/index.jsp";
             

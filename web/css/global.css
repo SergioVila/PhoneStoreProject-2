@@ -100,3 +100,5 @@ h3 span {
 {
     margin-left: 40%; 
 }
+#footerList{ text-align: center; }
+#footerItem { display: inline-block; } /* Don't float them */
