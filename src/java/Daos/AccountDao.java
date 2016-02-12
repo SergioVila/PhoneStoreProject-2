@@ -5,6 +5,7 @@
  */
 package Daos;
 
+import Business.Account;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -58,16 +59,21 @@ public class AccountDao extends Dao{
             ps.setString(1, email);
             
             rs = ps.executeQuery();
-            
             if(rs.next()){
                 Account a = new Account(); 
-                //
                 
+                a.setAccountStatus(rs.getString("AccountStatus"));
+                a.setAttempts(rs.getInt("Attempts"));
+                a.setDate(rs.getTime("Time"));
+                a.setEmail(rs.getString("email"));
                 
+                return a;
+                
+            }else{
+                return null;
             }
-            
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDao.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
         
 

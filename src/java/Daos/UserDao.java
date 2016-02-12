@@ -204,10 +204,7 @@ public class UserDao extends Dao implements UserDaoInterface {
 
             String pass = new User().getHash(userPassword);
 
-            String query = "SELECT * FROM user, account WHERE user.email = account.email" +
-            "and user.email = ? " +
-            "and pass = ?" +
-            "and account.accountStatus in ('unlocked','stg1','stg2')";
+            String query = "SELECT * FROM user WHERE email = ? and pass = ?";
 
             ps = con.prepareStatement(query);
 
