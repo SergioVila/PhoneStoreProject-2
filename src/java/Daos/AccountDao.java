@@ -60,7 +60,8 @@ public class AccountDao extends Dao{
             rs = ps.executeQuery();
             
             if(rs.next()){
-                Account a = new Account();
+                Account a = new Account(); 
+                //
                 
                 
             }
