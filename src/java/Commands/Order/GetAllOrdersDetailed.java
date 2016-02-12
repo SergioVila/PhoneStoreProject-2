@@ -35,7 +35,8 @@ public class GetAllOrdersDetailed implements Command{
         User s = (User)session.getAttribute("user");
       
         ArrayList<OrderProduct> op;
-        
+        if(s != null)
+        {
         // If it's not null setting boolean variable as true and setting the userfound (searchById) as an attribute
         if(s.getIsIsAdmin())
         {
@@ -94,7 +95,7 @@ public class GetAllOrdersDetailed implements Command{
             request.setAttribute("userLst",null);
          
         }
-
+        }
         // returning the page to forward
         return  "/orderList.jsp";
     }

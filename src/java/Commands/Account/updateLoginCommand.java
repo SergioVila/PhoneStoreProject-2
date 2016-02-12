@@ -28,7 +28,10 @@ public class updateLoginCommand implements Command{
             // Account dao not implemented yet
             AccountDao instance = new AccountDao();
             
+            if(username!= null)
+            {
             instance.update(username);
+            }
 
             forwardToJsp = "/index.jsp";
             

@@ -43,9 +43,9 @@ public class DeleteOrderByIdCommand implements Command{
         deleted = new OrderProductDao().deleteOrderProductById(orderID);
         
         deleted = new OrderDao().deleteOrderById(orderID);
-       
+        
         forwardToJsp = "/adminController.jsp";
-
+        
         return forwardToJsp;
     }
 }

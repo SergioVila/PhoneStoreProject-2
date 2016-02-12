@@ -34,11 +34,17 @@ public class RegisterNewOrderCommand implements Command {
 
         if (productArray == null) {
             productArray = new ArrayList();
+            if(p!=null)
+            {
             productArray.add(p);
             session.setAttribute("productOnOrderLst", productArray);
+            }
         } else {
+            if(p!=null)
+            {
             productArray.add(p);
             session.setAttribute("productOnOrderLst", productArray);
+            }
         }
 
         forwardToJsp = "phoneStore.jsp";
