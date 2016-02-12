@@ -10,6 +10,7 @@ package Commands.User;
  * @author Sergio
  */
 import Business.User;
+import Commands.Account.updateLoginCommand;
 import Commands.Command;
 import Service.UserService;
 import javax.servlet.http.HttpServletRequest;
@@ -42,19 +43,23 @@ public class LoginCommand implements Command
         
         if (!pass)
         {
-            forwardToJsp = "/loginError.jsp";
+            forwardToJsp = "/index.jsp";
         }else{
         
             //Use the UserServive class to login...
             UserService userService = new UserService();
             User userLoggingIn = userService.login(username, password);
 
-            //If login successful, store the session id for this client...
-            HttpSession session = request.getSession();
-            String clientSessionId = session.getId();
-            session.setAttribute("loggedSessionId", clientSessionId);
-            session.setAttribute("user", userLoggingIn);
-
+            if (userLoggingIn != null)
+            {
+                //If login successful, store the session id for this client...
+                HttpSession session = request.getSession();
+                String clientSessionId = session.getId();
+                session.setAttribute("loggedSessionId", clientSessionId);
+                session.setAttribute("user", userLoggingIn);
+            }else{
+                new updateLoginCommand();
+            }
             forwardToJsp = "/index.jsp";
         }
 
