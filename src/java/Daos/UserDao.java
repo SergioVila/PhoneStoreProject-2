@@ -204,7 +204,10 @@ public class UserDao extends Dao implements UserDaoInterface {
 
             String pass = new User().getHash(userPassword);
 
-            String query = "SELECT * FROM user WHERE email = ? and pass = ?";
+            String query = "SELECT * FROM user, account WHERE user.email = account.email" +
+            "and user.email = ? " +
+            "and pass = ?" +
+            "and account.accountStatus in ('unlocked','stg1','stg2')";
 
             ps = con.prepareStatement(query);
 
@@ -212,6 +215,8 @@ public class UserDao extends Dao implements UserDaoInterface {
             ps.setString(2, pass);
 
             rs = ps.executeQuery();
+            
+            //String status = ps2.ex
 
             if (rs.next()) {
                 u = new User();
