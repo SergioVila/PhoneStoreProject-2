@@ -24,7 +24,7 @@ public class AccountDao extends Dao{
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        String query = "update table Account set attempts = attempts+1 where email = ?";
+        String query = "update Account set attempts = attempts+1 where email = ?";
         
         try {
             ps = con.prepareStatement(query);
@@ -33,10 +33,43 @@ public class AccountDao extends Dao{
             
             ps.executeUpdate();
             
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public Account getStatus(String email){
+        
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            con = this.getConnection();
+            
+            if (email == null) {
+                return null;
+            }
+            
+            String query = "select * from Account where email = ?";
+
+            ps = con.prepareStatement(query);
+
+            ps.setString(1, email);
+            
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                Account a = new Account();
+                
+                
+            }
             
         } catch (SQLException ex) {
             Logger.getLogger(AccountDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+
     }
     
 }
