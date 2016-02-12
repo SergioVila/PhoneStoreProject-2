@@ -17,14 +17,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Sergio
  */
-public class updateLoginCommand {
-
-    public void update(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public class LoginCommand implements Command {
-
+public class updateLoginCommand implements Command{
+    
         public String execute(HttpServletRequest request, HttpServletResponse response) {
             String forwardToJsp;
             //If login successful, store the session id for this client...
@@ -41,4 +35,3 @@ public class updateLoginCommand {
             return forwardToJsp;
         }
     }
-}
