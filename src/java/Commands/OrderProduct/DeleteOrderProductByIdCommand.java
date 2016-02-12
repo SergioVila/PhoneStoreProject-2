@@ -38,6 +38,7 @@ public class DeleteOrderProductByIdCommand implements Command{
             // setting a new arrayList with the orders returned
             session.setAttribute("deleted", deleted);
             // site where the information is processed
+            
             forwardToJsp = "/index.jsp";
         } catch (NumberFormatException e)  {
             forwardToJsp = "/Error.html";
