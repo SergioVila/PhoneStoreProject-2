@@ -61,7 +61,7 @@ public class LoginCommand implements Command
                 Command command;
                 command = (Command) new updateLoginCommand();
                 
-                instance.
+                //instance.
             }
             forwardToJsp = "/index.jsp";
         }
