@@ -27,14 +27,14 @@ public class RegisterNewUserCommand implements Command {
                 request.getParameter("county") != null && request.getParameter("country") != null && request.getParameter("email") != null &&
                 request.getParameter("phone") != null && request.getParameter("password") != null)
         {
-        user.setfName(request.getParameter("fName"));
-        user.setlName(request.getParameter("lName"));
-        user.setAddress(request.getParameter("address"));
-        user.setCounty(request.getParameter("county"));
-        user.setCountry(request.getParameter("country"));
-        user.setEmail(request.getParameter("email"));
-        user.setPhone(request.getParameter("phone"));
-        user.setPassword(request.getParameter("password").toCharArray());
+            user.setfName(request.getParameter("fName"));
+            user.setlName(request.getParameter("lName"));
+            user.setAddress(request.getParameter("address"));
+            user.setCounty(request.getParameter("county"));
+            user.setCountry(request.getParameter("country"));
+            user.setEmail(request.getParameter("email"));
+            user.setPhone(request.getParameter("phone"));
+            user.setPassword(request.getParameter("password").toCharArray());
         }
         
         // Checking for null value
@@ -46,8 +46,9 @@ public class RegisterNewUserCommand implements Command {
                 forwardToJsp = "index.jsp";
             }
             else
-            {
-                forwardToJsp = "index.jsp";
+            {//sets an attribute and redirects back to registration page
+                request.setAttribute("error", "error");
+                forwardToJsp = "register.jsp";
             }
         }
         

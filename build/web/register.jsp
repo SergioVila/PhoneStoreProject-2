@@ -30,68 +30,66 @@
     <body>
         <nav id="navigation">
             <nav id="navigation">
-            <div class="container">
-                <ul class="navlinks">
-                    <li><a href="index.jsp">Home</a></li>
-                    <li><a href="processRequest?action=getAllProducts">Phone Store</a></li>
-                    <li><a href="about.jsp">About us</a></li>
-                    <li><a href="contacts.jsp">Contacts</a></li>
-                    <li style="float: right;list-style-type: none">
-                        <%
-                            User user = (User) session.getAttribute("user");
-                            if (session.getAttribute("loggedSessionId") != null && session.getAttribute("user") != null) {
-                        
-                                out.println("<a href='processRequest?action=logout'> Log out</a><a>\tHello " + user.getfName() + "</a>");
+                <div class="container">
+                    <ul class="navlinks">
+                        <li><a href="index.jsp">Home</a></li>
+                        <li><a href="processRequest?action=getAllProducts">Phone Store</a></li>
+                        <li><a href="about.jsp">About us</a></li>
+                        <li><a href="contacts.jsp">Contacts</a></li>
+                        <li style="float: right;list-style-type: none">
+                            <%
+                                User user = (User) session.getAttribute("user");
+                                if (session.getAttribute("loggedSessionId") != null && session.getAttribute("user") != null) {
 
-                            } else {
-                        %>
-                        <a id="modal_trigger" href="#myPopupRegister" data-rel="popup">Click here to Login or register</a>
+                                    out.println("<a href='processRequest?action=logout'> Log out</a><a>\tHello " + user.getfName() + "</a>");
 
-                        <!--    popup appears once login is selected     -->
-                        <div data-role="popup" id="myPopupRegister" class="ui-content" style="min-width:250px;">
-                            <form method="post" action="processRequest">
-                                <h3>Login information</h3>
-                                <br>
-                                <br>
+                                } else {
+                            %>
+                            <a id="modal_trigger" href="#myPopupRegister" data-rel="popup">Click here to Login or register</a>
+
+                            <!--    popup appears once login is selected     -->
+                            <div data-role="popup" id="myPopupRegister" class="ui-content" style="min-width:250px;">
+                                <form method="post" action="processRequest">
+                                    <h3>Login information</h3>
+                                    <br>
+                                    <br>
+                                    <div>
+                                        <input type="text" name="username" placeholder="Username/Email">
+
+                                        <input type="password" name="password" placeholder="Password">
+
+                                        <input type="hidden" value ="Login" name ="action">
+                                        <input type="submit" data-inline="true" value="Login" name="login">
+
+                                    </div>
+                                </form>
                                 <div>
-                                    <input type="text" name="username" placeholder="Username/Email">
-
-                                    <input type="password" name="password" placeholder="Password">
-
-                                    <input type="hidden" value ="Login" name ="action">
-                                    <input type="submit" data-inline="true" value="Login" name="login">
-
+                                    <a href = "register.jsp"><input type="submit" data-inline="true" value="Register"></a>
                                 </div>
-                            </form>
-                            <div>
-                                <a href = "register.jsp"><input type="submit" data-inline="true" value="Register"></a>
                             </div>
-                        </div>
-                        <%
-                            }
-                        %>
-                    </li>
+                            <%
+                                }
+                            %>
+                        </li>
 
-                    <%
-                        if (user != null && user.getIsIsAdmin() == true) {
-                    %>
-                    
-                    <li><a href="processRequest?action=getAllOrders">Orders</a></li>
-                    <li><a href="adminController.jsp">Admin Panel</a></li>
-                    <li><a href="cart.jsp">Cart</a></li>
                         <%
-                            }
-                        else if(user != null && user.getIsIsAdmin() != true)
-                            {             
+                            if (user != null && user.getIsIsAdmin() == true) {
                         %>
-                    <li><a href="processRequest?action=getAllOrders">Orders</a></li>
-                    <li><a href="cart.jsp">Cart</a></li>
-                        <%    }
-                        %>
-                    <li><a href="legal.jsp">Legal</a></li>
-                </ul>
-            </div>
-        </nav>
+
+                        <li><a href="processRequest?action=getAllOrders">Orders</a></li>
+                        <li><a href="adminController.jsp">Admin Panel</a></li>
+                        <li><a href="cart.jsp">Cart</a></li>
+                            <%
+                            } else if (user != null && user.getIsIsAdmin() != true) {
+                            %>
+                        <li><a href="processRequest?action=getAllOrders">Orders</a></li>
+                        <li><a href="cart.jsp">Cart</a></li>
+                            <%    }
+                            %>
+                        <li><a href="legal.jsp">Legal</a></li>
+                    </ul>
+                </div>
+            </nav>
         </nav>
         <br>
         <br>
@@ -99,6 +97,13 @@
         <div id="main-content">
             <div class="container">
                 <h1>Welcome</h1>
+                <%//if a person previously tried to register and faild then the script will display itself, it does this by searching for the error attribute
+                    if (request.getAttribute("error") != null) {
+                %>
+                <script>alert("There was an error and you failed to register")</script>
+                <%
+                    }
+                %>
                 <form method="post" action="processRequest">
                     <div class="container-fluid" style="width: 500px">
                         <label>First Name:</label><input type="text" name="fName" id = "fName" placeholder="fName"> 
