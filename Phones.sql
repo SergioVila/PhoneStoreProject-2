@@ -1,4 +1,4 @@
-Create Database if not exists MobileShop;
+﻿Create Database if not exists MobileShop;
 
 Create table MobileShop.Product
 (	
@@ -406,5 +406,8 @@ VALUES
 (NULL, 'LG', 'LG Address', 'Dublin', 'Ireland', 'suppor@LG.ie', '0987629372'),
 (NULL, 'Samsung', 'Samsung Address', 'Dublin', 'Ireland', 'suppor@samsung.ie', '0144562937'),
 (NULL, 'Microsoft', 'Microsoft Address', 'Dublin', 'Ireland', 'suppor@Microsoft.ie', '0144502437');
+
+ALTER TABLE product ADD totalRating Int(100);
+ALTER TABLE product ADD noOfRatings Int(100);
 
 
